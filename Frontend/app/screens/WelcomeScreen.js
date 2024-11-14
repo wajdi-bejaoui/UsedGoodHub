@@ -3,8 +3,10 @@ import { Button, Image, ImageBackground, StyleSheet, Text, View } from 'react-na
 
 import colors from '../config/colors';
 import AppButton from '../components/AppButton';
+import routes from "../navigation/routes";
 
-function WelcomeScreen(props) {
+
+function WelcomeScreen({navigation}) {
   return (
     <ImageBackground 
     blurRadius={10}
@@ -18,8 +20,17 @@ function WelcomeScreen(props) {
       </View>
       
       <View style={styles.buttonsContainer}>
-        <AppButton title="Login"/>
-        <AppButton title="Register" color="secondary" textColor='black'/>
+      <Button
+          title="Login"
+          onPress={() => navigation.navigate(routes.LOGIN)}
+        />
+        <Button
+          title="Register"
+          color="secondary"
+          textColor='black'
+          onPress={() => navigation.navigate(routes.REGISTER)}
+        />
+
         
       </View>
       

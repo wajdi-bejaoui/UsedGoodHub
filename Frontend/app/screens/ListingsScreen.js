@@ -4,6 +4,7 @@ import ListItem from '../components/ListItem';
 import Icon from '../components/Icon';
 import ListItemSeparator from '../components/ListItemSeparator';
 import { View, StyleSheet, FlatList } from 'react-native';
+import routes from "../navigation/routes";
 
 import colors from '../config/colors';
 import Card from '../components/Card';
@@ -22,10 +23,9 @@ const listings = [
     },
 ];
 
-function ListingsScreen(props) {
+function ListingsScreen({navigation}) {
     return (
         <Screen style={styles.screen}>
-            <View style={styles.flatContainer}>
                 <FlatList
                         data={listings}
                         keyExtractor={listing => listing.id.toString()}
@@ -34,25 +34,21 @@ function ListingsScreen(props) {
                             <Card 
                                 title={item.title} 
                                 subTitle={"$"+ item.subTitle}
-                                image={item.image} />)} 
-                            
+                                image={item.image}  
+                                onPress={() => navigation.navigate(routes.LISTING_DETAILS, item)}
+                            />
+                        )}
                     />
-            </View>
         </Screen>
     );
 }
 
 const styles = StyleSheet.create({
     screen : {
-        padding : 20,
+        paddingHorizontal : 20,
         backgroundColor : colors.light,
     },
-    flatContainer : {
-        marginVertical : 20,
-        // borderColor: 'red', // Added border color for debugging
-        // borderWidth: 1, // Added border width for debugging
-        
-    },
+
 })
 
 export default ListingsScreen;
