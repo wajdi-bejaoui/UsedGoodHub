@@ -21,6 +21,12 @@ const listings = [
         subTitle: "100",
         image : require('../assets/background_img.webp'),
     },
+    {
+        id : 3,
+        title: "Chair",
+        subTitle: "150",
+        image : require('../assets/background_img.webp'),
+    },
 ];
 
 function ListingsScreen({navigation}) {
@@ -45,7 +51,9 @@ function ListingsScreen({navigation}) {
 
 const styles = StyleSheet.create({
     screen : {
+        paddingTop : 20,
         paddingHorizontal : 20,
+
         backgroundColor : colors.light,
     },
 

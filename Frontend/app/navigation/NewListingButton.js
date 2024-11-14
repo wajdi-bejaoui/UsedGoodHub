@@ -21,7 +21,7 @@ function NewListingButton({ onPress }) {
 const styles = StyleSheet.create({
   button: {
     position: "absolute",
-    bottom: -20,
+    bottom: -25,
     alignSelf: "center",
   },
   container: {
