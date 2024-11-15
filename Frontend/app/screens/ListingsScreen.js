@@ -54,6 +54,7 @@ function ListingsScreen({navigation}) {
             </>
             )}
             <ActivityIndicator visible={getListingsApi.loading} />
+            {        console.log(getListingsApi.data)            }
                 <FlatList
                         data={getListingsApi.data}
                         keyExtractor={listing => listing.id.toString()}
@@ -64,9 +65,11 @@ function ListingsScreen({navigation}) {
                                 subTitle={"$"+ item.price}
                                 imageUrl={item.images[0].url}  
                                 onPress={() => navigation.navigate(routes.LISTING_DETAILS, item)}
+                                thumbnailUrl={item.images[0].thumbnailUrl}
                             />
                         )}
                     />
+
             <ActivityIndicator/>
         </Screen>
     );
